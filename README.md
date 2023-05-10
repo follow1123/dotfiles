@@ -10,3 +10,5 @@
 * 使用管理员打开cmd
 * 执行`mklink /D  ~\AppData\Local\lf ~\dotfiles\lf`
 
+
+
