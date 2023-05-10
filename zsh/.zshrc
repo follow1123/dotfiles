@@ -42,22 +42,33 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-# fastgithub 代理
-export http_proxy="http://127.0.0.1:38457"
-export https_proxy="http://127.0.0.1:38457"
-# 别名
-alias ll='ls -l'
-alias lla='ls -al'
-alias la='ls -a'
-alias r='ranger'
-alias grep="grep --color=auto"
-alias o="explorer.exe ."
+# 加载环境变量
+if [ -f ~/.zsh/.zsh_aliases ]; then
+    . ~/.zsh/.zsh_aliases
+fi
+# 加载别名
+if [ -f ~/.zsh/.zsh_profile ]; then
+    . ~/.zsh/.zsh_profile
+fi
+
+alias sw='sudo sh $HOME/scripts/sys_script/wifi/switch_wifi.sh'
+alias sb='sudo sh $HOME/bluetooth/switch_bluetooth.sh'
 # 主题
 source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # 语法高亮
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # 自动提示
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+xset r rate 250 60
+
+. "$HOME/.cargo/env"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# ctrl+j  接受一段 接受到最后一个单词有bug
+bindkey '^j' autosuggest-accept
+# alt+j  接受全部
+bindkey '\ej' forward-word
