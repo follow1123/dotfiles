@@ -51,7 +51,7 @@ if [ -f ~/.zsh/.zsh_profile ]; then
     . ~/.zsh/.zsh_profile
 fi
 
-alias sw='sudo sh $HOME/scripts/sys_script/wifi/switch_wifi.sh'
+alias sw='sudo sh $HOME/scripts/wifi/switch_wifi.sh'
 alias sb='sudo sh $HOME/bluetooth/switch_bluetooth.sh'
 # 主题
 source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
@@ -59,6 +59,8 @@ source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # 自动提示
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# 目录跳转
+source ~/.zsh/z/z.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -67,8 +69,9 @@ xset r rate 250 60
 
 . "$HOME/.cargo/env"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # ctrl+j  接受一段 接受到最后一个单词有bug
 bindkey '^j' autosuggest-accept
 # alt+j  接受全部
 bindkey '\ej' forward-word
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

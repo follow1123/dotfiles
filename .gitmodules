@@ -15,3 +15,9 @@
 	url = "https://github.com/zsh-users/zsh-syntax-highlighting.git"
 	active = true
 	ignore = all
+
+[submodule "zsh/.zsh/z"]
+	path = "zsh/.zsh/z"
+	url = "https://github.com/rupa/z.git"
+	active = true
+	ignore = all
