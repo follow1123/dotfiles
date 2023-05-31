@@ -3,5 +3,10 @@ set icons true
 # 默认显示隐藏文件
 set hidden true
 
-# set previewer ~/.config/lf/pv.sh
-# map i $~/.config/lf/pv.sh $f | less -R
+# set shell pwsh.exe
+
+set previewer ~/dotfiles/lf/pv.cmd
+# map i "C:/Users/YF/dotfiles/lf/pv.cmd" %f% 
+# 默认编辑器
+# map e $nvim %f%
+

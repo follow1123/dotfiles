@@ -1,5 +1,6 @@
 # 别名
 function vf { nvim $(fzf) }
+function nf { npp $(fzf) }
 function o { explorer .}
 function lg { lazygit.exe }
 
@@ -14,8 +15,12 @@ Set-PSReadLineKeyHandler -Chord "Alt+j" -Function ForwardWord
 
 # Get-ChildItem . -Recurse -Attributes Directory | Invoke-Fzf | Set-Location
 # $FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border  --preview 'cat {}'"
-Set-Item -Path 'Env:\FZF_DEFAULT_OPTS' -Value "--height 95% --layout=reverse  --preview 'bat --color=always --style=numbers --line-range=:500 {}' --prompt='❯ ' --info=inline:' ' --preview-window=down:70%"
+Set-Item -Path 'Env:\FZF_DEFAULT_OPTS' -Value "--height 95% --layout=reverse --preview 'bat --color=always --style=numbers --line-range=:500 {}' --prompt='❯ ' --info=inline:' ' --preview-window=down:60%"
 # Set-Item -Path 'Env:\FZF_DEFAULT_COMMAND' -Value "es"
 
 # 安装 z 插件
 # Install-Module -Name z 
+# lf配置
+Set-Item -Path 'Env:\SHELL' -Value "pwsh"
+Set-Item -Path 'Env:\EDITOR' -Value "nvim"
+Set-Item -Path 'Env:\PAGER' -Value "~/dotfiles/lf/pv.cmd"
