@@ -24,3 +24,12 @@ Set-Item -Path 'Env:\FZF_DEFAULT_OPTS' -Value "--height 95% --layout=reverse --p
 Set-Item -Path 'Env:\SHELL' -Value "pwsh"
 Set-Item -Path 'Env:\EDITOR' -Value "nvim"
 Set-Item -Path 'Env:\PAGER' -Value "~/dotfiles/lf/pv.cmd"
+
+# 使用管理员方式打开
+function sudo {
+    param (
+        [Parameter(Position=0, Mandatory=$true)]
+        $Path
+    )
+    Start-Process -FilePath $Path -Verb RunAs
+}
