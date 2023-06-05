@@ -42,17 +42,21 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-# 加载环境变量
-if [ -f ~/.zsh/.zsh_aliases ]; then
-    . ~/.zsh/.zsh_aliases
-fi
-# 加载别名
-if [ -f ~/.zsh/.zsh_profile ]; then
-    . ~/.zsh/.zsh_profile
-fi
 
-alias sw='sudo sh $HOME/scripts/wifi/switch_wifi.sh'
-alias sb='sudo sh $HOME/bluetooth/switch_bluetooth.sh'
+#-----------------------------------------环境变量-----------------------------------------#
+# lf文件管理器配置
+export EDITOR=nvim
+export OPENER=
+# fzf
+export FZF_DEFAULT_OPTS="--height 95% --layout=reverse --preview 'highlight -O ansi {} --syntax=sh' --preview-window=down:70% --info=inline:' ' --prompt='❯ '"
+# PATH
+# rust 工具配置
+. "$HOME/.cargo/env"
+# go
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOROOT/bin
+
+#-----------------------------------------配置导入-----------------------------------------#
 # 主题
 source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
 # 语法高亮
@@ -60,18 +64,31 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # 自动提示
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # 目录跳转
-source ~/.zsh/z/z.sh
-
+eval "$(zoxide init zsh)"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# fzf 插件加载
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-xset r rate 250 60
+#-----------------------------------------别名-----------------------------------------#
+alias ls='lsd'
+alias lg='lazygit'
 
-. "$HOME/.cargo/env"
+alias ll='ls -l'
+alias la='ls -a'
+alias lla='ls -al'
+alias grep="grep --color=auto"
+alias i='neofetch'
+alias hb='sudo systemctl hibernate'
+alias sp='sudo systemctl suspend'
 
+#-----------------------------------------按键绑定-----------------------------------------#
 # ctrl+j  接受一段 接受到最后一个单词有bug
 bindkey '^j' autosuggest-accept
 # alt+j  接受全部
 bindkey '\ej' forward-word
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#-----------------------------------------其它-----------------------------------------#
+# 导入本地配置
+[ -f ~/.zsh_local ] && source ~/.zsh_local
+

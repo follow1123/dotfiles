@@ -1,8 +1,0 @@
-# 别名
-alias ll='ls -l'
-alias lla='ls -al'
-alias la='ls -a'
-alias grep="grep --color=auto"
-alias i='neofetch'
-alias hb='sudo systemctl hibernate'
-alias sp='sudo systemctl suspend'

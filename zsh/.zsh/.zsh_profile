@@ -1,9 +1,0 @@
-# fastgithub 代理
-export http_proxy="http://127.0.0.1:38457"
-export https_proxy="http://127.0.0.1:38457"
-# ls文件管理器配置
-export EDITOR=nvim
-export OPENER=
-
-export PATH=$PATH:$HOME/go/bin
-export FZF_DEFAULT_OPTS="--height 95% --layout=reverse --border --preview 'highlight -O ansi {} --syntax=sh' --preview-window=down:70% --info=inline:' ' --prompt='❯ '"
