@@ -30,7 +30,7 @@ shell:
 
 key_bindings:
     # 方向左键
-  - { key: J, mods: Control, chars: "\x1b[C"}
+  # - { key: J, mods: Control, chars: "\x1b[C"}
     # 使用fzf搜索
   - { key: F, mods: Control, chars: "fzf\r"}
     # 打开vi模式
