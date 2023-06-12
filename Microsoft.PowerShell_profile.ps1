@@ -1,5 +1,6 @@
 # 别名
 function ll { lsd -l }
+Set-Alias -Name ls -Value ll
 function la { lsd -a }
 function lla { lsd -al }
 

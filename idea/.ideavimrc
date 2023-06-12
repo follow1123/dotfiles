@@ -16,5 +16,4 @@ nnoremap <C-left> <C-w><
 nnoremap <C-right> <C-w>>
 nnoremap <C-up> <C-w>-
 nnoremap <C-down> <C-w>+
-nnoremap <A-j> V:m '>+1<CR>gv=gv'<Esc><Esc>
-nnoremap <A-k> V:m '>-2<CR>gv=gv'<Esc><Esc>
+nnoremap gi :action GotoImplementation<CR>
