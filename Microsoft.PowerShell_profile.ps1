@@ -1,6 +1,8 @@
 # 别名
 function ll { lsd -l }
-Set-Alias -Name ls -Value ll
+Set-Alias -Name ls -Value lsd
+Set-Alias -Name grep -Value rg
+Set-Alias -Name cat -Value bat
 function la { lsd -a }
 function lla { lsd -al }
 
