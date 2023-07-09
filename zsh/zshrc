@@ -44,6 +44,8 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 #-----------------------------------------环境变量-----------------------------------------#
+# 系统配置
+source /etc/profile
 # lf文件管理器配置
 export EDITOR=nvim
 export OPENER=
@@ -72,6 +74,8 @@ eval "$(zoxide init zsh)"
 
 #-----------------------------------------别名-----------------------------------------#
 alias ls='lsd'
+alias cat='bat'
+alias find='fd'
 alias lg='lazygit'
 
 alias ll='ls -l'
