@@ -83,8 +83,8 @@ alias la='ls -a'
 alias lla='ls -al'
 alias grep="grep --color=auto"
 alias i='neofetch'
-alias hb='sudo systemctl hibernate'
-alias sp='sudo systemctl suspend'
+alias hb='systemctl hibernate'
+alias sp='systemctl suspend'
 
 #-----------------------------------------按键绑定-----------------------------------------#
 # ctrl+j  接受一段 接受到最后一个单词有bug
