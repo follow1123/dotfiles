@@ -13,8 +13,6 @@ ln -s $dotfile_dir/nvim ~/.config
 ln -s $dotfile_dir/zsh/zshrc ~/.zshrc
 ln -s $dotfile_dir/zsh/zsh ~/.zsh
 
-# dunst
-ln -s $dotfile_dir/dunst ~/.config
 
 # alacritty
 ln -s $dotfile_dir/alacritty ~/.config
