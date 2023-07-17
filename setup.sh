@@ -22,3 +22,6 @@ ln -s $dotfile_dir/lf ~/.config
 
 # lazygit
 ln -s $dotfile_dir/lazygit ~/.config
+
+# git 
+ln -s $dotfile_dir/git/gitconfig ~/.gitconfig
