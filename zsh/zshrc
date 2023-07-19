@@ -75,14 +75,14 @@ eval "$(zoxide init zsh)"
 
 #-----------------------------------------别名-----------------------------------------#
 alias ls='lsd'
-alias find='fd'
 alias lg='lazygit'
 
+alias s='startx'
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -al'
 alias grep="grep --color=auto"
-alias i='neofetch'
+alias n='neofetch'
 alias hb='systemctl hibernate'
 alias sp='systemctl suspend'
 
