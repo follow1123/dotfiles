@@ -46,3 +46,6 @@ go install github.com/jesseduffield/lazygit@latest # lazygit
 * 编译并安装：`sudo make install`
 
 ## 所有软件安装完后需要执行当前目录下的[setup.sh](./setup.sh)文件替换默认配置,(切换到当前目录下执行)
+
+## 设置全局环境变量
+* `sudo ln -s ~/space/dotfiles/profile.sh /etc/profile.d/profile.sh`
