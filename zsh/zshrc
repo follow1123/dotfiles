@@ -55,7 +55,7 @@ export FZF_DEFAULT_OPTS="--height 95% --layout=reverse --preview 'highlight -O a
 # rust 工具配置
 . "$HOME/.cargo/env"
 # go
-export GOROOT=/usr/local/go
+export GOROOT=~/space/env/go
 export GOPATH=$HOME/space/code/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
