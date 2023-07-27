@@ -36,7 +36,7 @@ cargo install alacritty bat lsd fd-find ripgrep zoxide
 env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest # lf
 go install github.com/jesseduffield/lazygit@latest # lazygit
 ```
-
+    
 ## neovim安装
 * 依赖
     * `sudo apt install cmake xclip gettext`
@@ -44,8 +44,6 @@ go install github.com/jesseduffield/lazygit@latest # lazygit
 * 切换到稳定版：`git checkout stable`
 * 进入neovim目录，执行：`make CMAKE_BUILD_TYPE=RelWithDebInfo`，检查是否缺少依赖，安提示安装
 * 编译并安装：`sudo make install`
-
-## 所有软件安装完后需要执行当前目录下的[setup.sh](./setup.sh)文件替换默认配置,(切换到当前目录下执行)
 
 ## 设置全局环境变量
 * `sudo ln -s ~/space/dotfiles/profile.sh /etc/profile.d/profile.sh`

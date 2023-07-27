@@ -57,7 +57,10 @@ export FZF_DEFAULT_OPTS="--height 95% --layout=reverse --preview 'highlight -O a
 # go
 export GOROOT=~/space/env/go
 export GOPATH=$HOME/space/code/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+export NODEJS_HOME=~/space/env/nodejs
+
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:$NODEJS_HOME/bin
 
 #-----------------------------------------配置导入-----------------------------------------#
 # 主题
