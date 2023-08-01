@@ -79,8 +79,9 @@ eval "$(zoxide init zsh)"
 #-----------------------------------------别名-----------------------------------------#
 alias ls='lsd'
 alias lg='lazygit'
+# alias lf='~/space/scripts/joshuto_ueberzug.sh'
 
-alias s='startx'
+# alias s='startx'
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -al'

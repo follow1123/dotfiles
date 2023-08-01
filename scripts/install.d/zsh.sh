@@ -21,7 +21,7 @@ function config(){
 	ln -s $DOTFILE_HOME/zshrc $HOME/.zshrc
 	ln -s $DOTFILE_HOME/zsh $HOME/.zsh
 	ln -s $DOTFILE_HOME/env $HOME/.env
-	sudo chsh -s /bin/zsh
+	chsh -s /bin/zsh
 	echo "zsh 已配置，需要重启系统"
 }
 

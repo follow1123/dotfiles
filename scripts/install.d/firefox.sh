@@ -16,6 +16,11 @@ if [ ! -d "$INSTALL_HOME" ]; then
 	mkdir -p $INSTALL_HOME
 fi
 
+function libraries(){
+	echo "开始安装firefox依赖"
+	sudo apt install libdbus-glib-1-2
+}
+
 # 安装软件
 function install(){
 	echo "开始安装firefox"
@@ -25,4 +30,5 @@ function install(){
 }
 
 
+libraries
 install
