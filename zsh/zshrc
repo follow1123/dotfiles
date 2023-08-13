@@ -50,7 +50,7 @@ source /etc/profile
 export EDITOR=nvim
 export OPENER=
 # fzf
-export FZF_DEFAULT_OPTS="--height 95% --layout=reverse --preview 'highlight -O ansi {} --syntax=sh' --preview-window=down:70% --info=inline:' ' --prompt='❯ '"
+export FZF_DEFAULT_OPTS="--height 90% --layout=reverse --preview 'bat {}' --preview-window=down:70% --info=inline:' ' --prompt='❯ '"
 # PATH
 # rust 工具配置
 . "$HOME/.cargo/env"
@@ -92,7 +92,9 @@ alias sp='systemctl suspend'
 
 #-----------------------------------------按键绑定-----------------------------------------#
 # ctrl+j  接受一段 接受到最后一个单词有bug
-bindkey '^j' autosuggest-accept
+if [[ "$INSIDE_EMACS" != 'vterm' ]]; then
+	bindkey '^j' autosuggest-accept
+fi
 # alt+j  接受全部
 bindkey '\ej' forward-word
 
@@ -100,3 +102,6 @@ bindkey '\ej' forward-word
 # 导入本地配置
 [ -f ~/.zsh_local ] && source ~/.zsh_local
 
+if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
+    alias clear='vterm_printf "51;Evterm-clear-scrollback";tput clear'
+fi
