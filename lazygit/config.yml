@@ -1,0 +1,11 @@
+gui:
+  language: 'en'
+  border: single
+os:
+  edit: 'nvim {{filename}}'
+  editAtLine: 'nvim +{{line}} {{filename}}'
+  editInTerminal: true
+  openDirInEditor: 'nvim {{dir}}'
+git:
+  log:
+    showGraph: 'when-maximised'

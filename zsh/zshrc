@@ -1,15 +1,10 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Set up the prompt
 
 autoload -Uz promptinit
 promptinit
-prompt adam1
+# prompt suse~
+PROMPT='
+%n@%m:%F{cyan}%~/ %F{red}>%f '
 
 setopt histignorealldups sharehistory
 
@@ -18,7 +13,7 @@ bindkey -e
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
-SAVEHIST=1000
+SAVEHIST=5000
 HISTFILE=~/.zsh_history
 
 # Use modern completion system
@@ -43,65 +38,67 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-#-----------------------------------------环境变量-----------------------------------------#
-# 系统配置
-source /etc/profile
-# lf文件管理器配置
-export EDITOR=nvim
-export OPENER=
-# fzf
-export FZF_DEFAULT_OPTS="--height 90% --layout=reverse --preview 'bat {}' --preview-window=down:70% --info=inline:' ' --prompt='❯ '"
-# PATH
-# rust 工具配置
-. "$HOME/.cargo/env"
+# 环境变量 --------------------------------------------------------------------
+
+# rust
+[ -f ~/.cargo/env ] && . "$HOME/.cargo/env"
+
+# nodejs
+export NODEJS_HOME=$HOME/space/packages/nodejs/current
+
+# jdk
+export JAVA_HOME=$HOME/space/packages/jdk/current
+
+# maven
+export MAVEN_HOME=$HOME/space/packages/maven/current
+
 # go
-export GOROOT=~/space/env/go
-export GOPATH=$HOME/space/code/go
+export GOROOT=$HOME/space/packages/go/current
 
-export NODEJS_HOME=~/space/env/nodejs
+export PATH=$GOROOT/bin:$NODEJS_HOME/bin:$HOME/space/packages/gradle/current/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$HOME/.local/bin:$PATH
 
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:$NODEJS_HOME/bin
+# zsh 快捷键支持路径分割
+export WORDCHARS=${WORDCHARS/\//}
 
-#-----------------------------------------配置导入-----------------------------------------#
-# 主题
-source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
-# 语法高亮
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# 自动提示
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+export SYSTEMD_EDITOR=/usr/local/bin/nvim
+
+export MANPAGER="less -R --use-color -Dd+y -Du+b"
+
+# 配置导入 --------------------------------------------------------------------
+
+# zsh-autosuggestions插件加载
+[ -d /usr/share/zsh-autosuggestions ] && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # 目录跳转
-eval "$(zoxide init zsh)"
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-# fzf 插件加载
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-#-----------------------------------------别名-----------------------------------------#
-alias ls='lsd'
-alias lg='lazygit'
-# alias lf='~/space/scripts/joshuto_ueberzug.sh'
-
-# alias s='startx'
-alias ll='ls -l'
-alias la='ls -a'
-alias lla='ls -al'
-alias grep="grep --color=auto"
-alias n='neofetch'
-alias hb='systemctl hibernate'
-alias sp='systemctl suspend'
-
-#-----------------------------------------按键绑定-----------------------------------------#
-# ctrl+j  接受一段 接受到最后一个单词有bug
-if [[ "$INSIDE_EMACS" != 'vterm' ]]; then
-	bindkey '^j' autosuggest-accept
+if command -v "zoxide" >/dev/null 2>&1; then
+    eval "$(zoxide init zsh)"
 fi
-# alt+j  接受全部
-bindkey '\ej' forward-word
 
-#-----------------------------------------其它-----------------------------------------#
+# 别名 ------------------------------------------------------------------------
+
+alias ls='ls -hlF --color'
+alias lg='lazygit'
+
+alias la='ls -A'
+alias grep="grep --color=auto"
+
+function vman() {
+    nvim -u $HOME/.config/nvim/vimrc +"Man $1" -c "wincmd o"
+}
+
+alias vim='nvim -u $HOME/.config/nvim/vimrc'
+
+# 其它 ------------------------------------------------------------------------
+
+bindkey '^r' history-incremental-pattern-search-backward
+
 # 导入本地配置
 [ -f ~/.zsh_local ] && source ~/.zsh_local
 
-if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
-    alias clear='vterm_printf "51;Evterm-clear-scrollback";tput clear'
-fi
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

@@ -1,5 +1,17 @@
-[user]
-	name = yf
-	email = ---
 [credential]
 	helper = store
+[credential "helperselector"]
+	selected = manager-ui
+
+[core]
+    editor = nvim
+	autocrlf = false
+
+[merge]
+	tool = vimdiff
+
+[mergetool "vimdiff"]
+    cmd = nvim -d $BASE $LOCAL $MERGED $REMOTE -c 'wincmd c' -c 'wincmd l' -c 'normal ]c'
+
+[init]
+	defaultBranch = main

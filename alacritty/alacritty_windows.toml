@@ -1,0 +1,39 @@
+[terminal.shell]
+program = "pwsh.exe"
+
+# 窗口
+[window]
+dimensions = { columns = 120, lines = 30 }
+decorations_theme_variant = "Dark"
+
+# 字体
+[font]
+# 字体大小
+size = 12
+# 字体风格
+normal = { family = "CaskaydiaCove Nerd Font", style = "Regular" }
+bold = { family = "CaskaydiaCove Nerd Font", style = "Regular" }
+italic = { family = "CaskaydiaCove Nerd Font", style = "Regular" }
+# 光标样式
+[cursor]
+style = { shape = "Beam", blinking = "On" }
+
+[mouse]
+hide_when_typing = true
+
+[keyboard]
+bindings = [
+    { key = "Return", mods = "Alt", action = "None" },
+    { key = "F11", mods = "None", action = "ToggleFullscreen" },
+    { key = "N", mods = "Control|Shift", action = "CreateNewWindow" }
+]
+
+[general]
+# 实时加载配置
+live_config_reload = true
+
+[terminal]
+
+[selection]
+# 选中的文本自动保存到剪切板
+save_to_clipboard = true
