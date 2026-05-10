@@ -1,0 +1,177 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "VimControl && !menu",
+    "unbind": {
+      "ctrl-b": "vim::PageUp",
+    },
+  },
+  {
+    "context": "VimControl && !menu",
+    "unbind": {
+      "ctrl-f": "vim::PageDown",
+    },
+  },
+  {
+    "bindings": {
+      "alt-f": "file_finder::Toggle",
+    },
+  },
+  {
+    "bindings": {
+      "alt-s": "terminal_panel::Toggle",
+    },
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-n": ["terminal::SendKeystroke", "ctrl-n"],
+    },
+  },
+  {
+    "bindings": {
+      "alt-1": "project_panel::Toggle",
+    },
+  },
+  {
+    "bindings": {
+      "alt-2": "outline_panel::Toggle",
+    },
+  },
+  {
+    "bindings": {
+      "alt-q": "pane::CloseActiveItem",
+    },
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "space f f": "pane::DeploySearch",
+    },
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "ctrl-d": [
+        "action::Sequence",
+        [
+          ["vim::ScrollDown", 0],
+          ["editor::ScrollCursorCenter", 0],
+        ],
+      ],
+    },
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "ctrl-u": [
+        "action::Sequence",
+        [
+          ["vim::ScrollUp", 0],
+          ["editor::ScrollCursorCenter", 0],
+        ],
+      ],
+    },
+  },
+  {
+    "bindings": {
+      "alt-j": ["pane::ActivateItem", 0],
+    },
+  },
+  {
+    "bindings": {
+      "alt-k": ["pane::ActivateItem", 1],
+    },
+  },
+  {
+    "bindings": {
+      "alt-l": ["pane::ActivateItem", 2],
+    },
+  },
+  {
+    "bindings": {
+      "alt-;": ["pane::ActivateItem", 3],
+    },
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "g r": "editor::FindAllReferences",
+    },
+  },
+  {
+    "context": "(VimControl && !menu) || (!Editor && !Terminal)",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+    },
+  },
+  {
+    "context": "(VimControl && !menu) || (!Editor && !Terminal)",
+    "bindings": {
+      "ctrl-j": "workspace::ActivatePaneDown",
+    },
+  },
+  {
+    "context": "(VimControl && !menu) || (!Editor && !Terminal)",
+    "bindings": {
+      "ctrl-k": "workspace::ActivatePaneUp",
+    },
+  },
+  {
+    "context": "(VimControl && !menu) || (!Editor && !Terminal)",
+    "bindings": {
+      "ctrl-l": "workspace::ActivatePaneRight",
+    },
+  },
+  {
+    "bindings": {
+      "ctrl-[": "menu::Cancel",
+    },
+  },
+  {
+    "context": "Editor && !agent_diff",
+    "bindings": {
+      "space g r": "git::Restore",
+    },
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "alt-enter": "editor::ToggleCodeActions",
+    },
+  },
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space l d": "diagnostics::DeployCurrentFile",
+    },
+  },
+  {
+    "bindings": {
+      "space g b": "git::Blame",
+    },
+  },
+  {
+    "bindings": {
+      "space g d": "git::Diff",
+    },
+  },
+  {
+    "context": "Editor && extension == md",
+    "bindings": {
+      "space m p": "markdown::OpenPreview",
+    },
+  },
+  {
+    "context": "vim_mode == normal || vim_mode == visual",
+    "bindings": {
+      "alt-e": "vim::ToggleComments"
+    }
+  }
+]

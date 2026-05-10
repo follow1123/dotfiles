@@ -2,7 +2,7 @@
 - Shell：[powershell](#powershell)
 - Git：[git](#git) • [lazygit](#lazygit)
 - 搜索：[fd](#fd) • [ripgrep](#ripgrep) • [fzf](#fzf)
-- IDE：[Neovim](#neovim) • [Visual Studio Code](#visual-studio-code) • [IntelliJ IDEA](#intellij-idea)
+- IDE：[Neovim](#neovim) • [Visual Studio Code](#visual-studio-code) • [IntelliJ IDEA](#intellij-idea) • [Zed](#zed)
 - 其他：[scoop](#scoop) • [bat](#bat) • [zoxide](#zoxide) • [btop](#btop) • [xmllint](#xmllint) • [firefox](#firefox)
 
 ---
@@ -346,3 +346,9 @@ New-Item -ItemType SymbolicLink -Path "$ENV:APPDATA\Code\User\keybindings.json" 
 # 复制 ideavim 插件配置
 New-Item -ItemType SymbolicLink -Path "$ENV:USERPROFILE\.ideavimrc" -Target "$((Get-Location).Path)\idea\ideavimrc_win" -Force
 ```
+
+## Zed
+
+> [官网](https://zed.dev)
+
+两个配置文件复制到 `$env:appdata` 的 Zed 目录下
