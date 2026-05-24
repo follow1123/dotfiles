@@ -19,6 +19,7 @@
     },
   },
   {
+    "context": "Editor",
     "bindings": {
       "alt-f": "file_finder::Toggle",
     },
@@ -32,6 +33,12 @@
     "context": "Terminal",
     "bindings": {
       "ctrl-n": ["terminal::SendKeystroke", "ctrl-n"],
+    },
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-p": ["terminal::SendKeystroke", "ctrl-p"],
     },
   },
   {
@@ -135,7 +142,7 @@
     },
   },
   {
-    "context": "Editor && !agent_diff",
+    "context": "Editor && !agent_diff  && vim_mode == normal",
     "bindings": {
       "space g r": "git::Restore",
     },
@@ -147,23 +154,25 @@
     },
   },
   {
-    "context": "vim_mode == normal",
+    "context": "Editor && vim_mode == normal",
     "bindings": {
       "space l d": "diagnostics::DeployCurrentFile",
     },
   },
   {
+    "context": "VimControl && !menu && vim_mode == normal",
     "bindings": {
       "space g b": "git::Blame",
     },
   },
   {
+    "context": "VimControl && !menu && vim_mode == normal",
     "bindings": {
       "space g d": "git::Diff",
     },
   },
   {
-    "context": "Editor && extension == md",
+    "context": "Editor  && vim_mode == normal && extension == md",
     "bindings": {
       "space m p": "markdown::OpenPreview",
     },
@@ -171,7 +180,25 @@
   {
     "context": "vim_mode == normal || vim_mode == visual",
     "bindings": {
-      "alt-e": "vim::ToggleComments"
+      "alt-e": "vim::ToggleComments",
+    },
+  },
+  {
+    "context": "vim_mode == normal",
+    "unbind": {
+      "shift-y": "vim::YankLine"
+    }
+  },
+  {
+    "context": "(vim_mode == normal || vim_mode == helix_normal) && !menu",
+    "unbind": {
+      "shift-y": "vim::YankLine"
+    }
+  },
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "shift-y": "vim::YankToEndOfLine"
     }
   }
 ]

@@ -7,6 +7,8 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "cli_default_open_behavior": "existing_window",
+  "hide_mouse": "on_typing_and_action",
   "edit_predictions": {
     "provider": "zed",
   },
@@ -37,7 +39,7 @@
   "buffer_line_height": "standard",
   "ui_font_family": ".SystemUIFont",
   "buffer_font_family": "CaskaydiaCove Nerd Font",
-  "proxy": "http://localhost:7899",
+  "proxy": "http://127.0.0.1:7899",
   "telemetry": {
     "diagnostics": false,
     "metrics": false,
@@ -55,4 +57,5 @@
     "light": "One Light",
     "dark": "One Dark",
   },
+  "soft_wrap": "none",
 }
