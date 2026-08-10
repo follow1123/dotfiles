@@ -200,5 +200,11 @@
     "bindings": {
       "shift-y": "vim::YankToEndOfLine"
     }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "ctrl-]": "editor::Indent"
+    }
   }
 ]
