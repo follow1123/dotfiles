@@ -1,6 +1,6 @@
 {
   // base config --------------------------------------------------------------------
-  "extensions.autoUpdate": false,
+  "extensions.autoUpdate": "off",
   "window.menuBarVisibility": "toggle",
   "workbench.quickOpen.closeOnFocusLost": true, // 失去焦点时关闭弹窗
   "workbench.editor.enablePreview": false, // 禁用预览文件时替换当前的tab
