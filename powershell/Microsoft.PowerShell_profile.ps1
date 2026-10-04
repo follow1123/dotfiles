@@ -19,17 +19,12 @@ Remove-Alias -Name "where" -Force # 默认是Where-Object，移除后使用系�
 Set-Alias -Name lg -Value lazygit
 Set-Alias -Name make -Value mingw32-make.exe
 
-Set-Alias -Name vim -Value "$Env:USERPROFILE/space/scripts/vim.cmd"
-
 # keymap ----------------------------------------------------------------------
 
 Set-PSReadLineOption -EditMode Emacs # 可选的，选择编辑模式
 Set-PSReadlineOption -BellStyle None # 禁用铃声
 
 # env -------------------------------------------------------------------------
-
-# fzf选项配置
-$ENV:FZF_DEFAULT_OPTS = "--height 70% --layout=reverse --info=inline --preview-window=down:60%"
 
 # plugins ---------------------------------------------------------------------
 
